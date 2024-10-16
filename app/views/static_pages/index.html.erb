@@ -1,0 +1,13 @@
+<h1>Homepage</h1>
+<%= form_with url: @static_pages, method: :get do |f| %>
+    <%= f.label :search %>
+    <%= f.text_field :search, placeholder: "Enter Flickr User ID" %>
+    <%= f.submit %>
+<% end %>
+<br>
+<% unless @list.nil? %>
+    <% @list.each do |p| %>
+        <% img_src = "https://live.staticflickr.com/#{p.server}/#{p.id}_#{p.secret}.jpg" %>
+        <img src=<%= img_src %>>
+    <% end %>
+<% end %>
